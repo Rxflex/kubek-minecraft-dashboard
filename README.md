@@ -47,6 +47,22 @@ Start after installation
 npm start
 ```
 
+### Docker Compose
+
+```
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - /opt/kubek/servers:/usr/kubek/servers
+
+```
+
+
 ### With docker
 
 ### Build own

@@ -28,10 +28,12 @@ Kubek - Web Minecraft servers dashboard
 
 # Installation
 
+## Windows/Linux
 Download and launch [latest release](https://github.com/Seeroy/kubek-minecraft-dashboard/releases/latest)
 
-**OR**
+## Web Version
 
+### Without docker
 Clone repository and install modules
 **Node.js >= 16 required!**
 ```
@@ -44,3 +46,21 @@ Start after installation
 ```
 npm start
 ```
+
+### With docker
+
+### Build own
+
+```
+docker build -t kubikmc .
+```
+
+### Run
+
+- YOURPORT - Port is used for WebUI
+- YOURDIRECTORY - Path to the host directory where located servers
+
+```
+docker run -d -p YOURPORT:3000 -v YOURDIRECTORY:/usr/kubek/servers --name kubik kubikmc
+```
+

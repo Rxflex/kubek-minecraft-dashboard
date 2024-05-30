@@ -1,4 +1,6 @@
 # kubek-minecraft-dashboard
+Docker build status: [![Docker Image CI](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml)
+
 Kubek - Web Minecraft servers dashboard
 
 **Features:**

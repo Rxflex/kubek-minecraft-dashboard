@@ -78,7 +78,7 @@ exports.getAllJavaInstalled = () => {
         });
         return javas;
     }
-    return ["java"];
+    return [];
 };
 
 // Отправить статистику на сервер

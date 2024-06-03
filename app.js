@@ -1,3 +1,20 @@
+const Sentry = require("@sentry/node");
+const { nodeProfilingIntegration } = require("@sentry/profiling-node");
+
+
+// Sentry Init
+Sentry.init({
+    dsn: "https://86ff7955d58dab5c0d113d7677b7fce0@o4504016161144832.ingest.us.sentry.io/4507368759558144",
+    integrations: [
+        nodeProfilingIntegration(),
+    ],
+    // Performance Monitoring
+    tracesSampleRate: 1.0, //  Capture 100% of the transactions
+
+    // Set sampling rate for profiling - this is relative to tracesSampleRate
+    profilesSampleRate: 1.0,
+});
+
 // Загружаем нужные самописные модули
 const COMMONS = require("./modules/commons");
 const CONFIGURATION = require("./modules/configuration");

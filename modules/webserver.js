@@ -4,6 +4,8 @@ const COMMONS = require("./commons");
 const SECURITY = require("./security");
 const FILE_MANAGER = require("./fileManager");
 const MULTILANG = require("./multiLanguage");
+const Sentry = require("@sentry/node");
+
 
 const fs = require("fs");
 const express = require('express');
@@ -16,6 +18,7 @@ const {isInSubnet} = require('is-in-subnet');
 
 global.webServer = express();
 global.webPagesPermissions = {};
+Sentry.setupExpressErrorHandler(webServer);
 webServer.use(cookieParser());
 webServer.use(
     fileUpload({

@@ -1,25 +1,29 @@
-# kubek-minecraft-dashboard
+# Kubek Minecraft Dashboard
+
+Kubek is a web-based dashboard for managing Minecraft servers, offering a range of features to streamline server administration and customization.
+
 [![Docker Image CI](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml)
 
-Kubek - Web Minecraft servers dashboard
+## Features
 
-**Features:**
-- Linux and Windows supported
-- Pure single-page UI
-- Plugins and mods manager
-- Real-time console
-- Server.properties editor
-- FTP server
-- File manager with syntax highlighting
-- Users and roles system with servers access restriction
+- **Cross-platform Support:** Works seamlessly on both Linux and Windows systems.
+- **Intuitive Single-Page UI:** A clean and straightforward user interface for easy navigation and usage.
+- **Plugins and Mods Management:** Effortlessly manage plugins and mods for your Minecraft server.
+- **Real-time Console:** Monitor your server's console in real-time for efficient troubleshooting and management.
+- **Server Properties Editor:** Easily edit server.properties file to customize server settings.
+- **FTP Server:** Integrated FTP server for convenient file transfer.
+- **File Manager:** File manager with syntax highlighting for managing server files.
+- **Users and Roles System:** Manage users and roles with access restrictions to servers.
 
-**Tested and working cores**:
-- All popular PaperMC versions (all PaperMC forks (Tuinity, Airplane, Purpur, etc.) more likely will be work too)
-- Spigot 1.8 - 1.18.2 (not included all versions)
-- Forge 1.12.2 - 1.19.2 (not included all versions)
-- Velocity 1.19.3
+## Tested and Supported Cores
 
-**Natively supported cores:**
+- **PaperMC:** All popular PaperMC versions are supported, including its forks such as Tuinity, Airplane, and Purpur.
+- **Spigot:** Versions 1.8 to 1.18.2 of Spigot are supported.
+- **Forge:** Versions 1.12.2 to 1.19.2 of Forge are supported.
+- **Velocity:** Version 1.19.3 of Velocity is supported.
+
+## Natively Supported Cores
+
 - Official Vanilla Server
 - PaperMC
 - Spigot
@@ -31,20 +35,23 @@ Kubek - Web Minecraft servers dashboard
 # Installation
 
 ## Windows/Linux
-Download and launch [latest release](https://github.com/Seeroy/kubek-minecraft-dashboard/releases/latest)
+
+Download and launch the [latest release](https://github.com/Seeroy/kubek-minecraft-dashboard/releases/latest).
 
 ## Web Version
 
-### Without docker
-Clone repository and install modules
-**Node.js >= 16 required!**
+### Without Docker
+
+Clone the repository and install the required modules. Make sure you have Node.js version 16 or above installed.
+
 ```
-git clone https://github.com/Seeroy/kubek-minecraft-dashboard.git
+git clone https://github.com/Rxflex/kubek-minecraft-dashboard.git
 cd kubek-minecraft-dashboard
 npm install
 ```
 
-Start after installation
+Start the application after installation.
+
 ```
 npm start
 ```
@@ -61,24 +68,13 @@ services:
       - "3000:3000"
     volumes:
       - /opt/kubek/servers:/usr/kubek/servers
+```
+### With Docker
+
+#### Run the Container
+
+Replace YOURPORT with the desired port for WebUI and YOURDIRECTORY with the path to the host directory where your servers are located.
 
 ```
-
-
-### With docker
-
-### Build own
-
+docker run -d -p YOURPORT:3000 -v YOURDIRECTORY:/usr/kubek/servers --name kubik ghcr.io/rxflex/kubek-minecraft-dashboard:latest
 ```
-docker build -t kubikmc .
-```
-
-### Run
-
-- YOURPORT - Port is used for WebUI
-- YOURDIRECTORY - Path to the host directory where located servers
-
-```
-docker run -d -p YOURPORT:3000 -v YOURDIRECTORY:/usr/kubek/servers --name kubik kubikmc
-```
-

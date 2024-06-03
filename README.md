@@ -1,5 +1,5 @@
 # kubek-minecraft-dashboard
-[![Docker](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-publish.yml) [![Docker Image CI](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml)
+[![Docker Image CI](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rxflex/kubek-minecraft-dashboard/actions/workflows/docker-image.yml)
 
 Kubek - Web Minecraft servers dashboard
 

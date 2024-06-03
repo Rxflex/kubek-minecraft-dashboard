@@ -80,15 +80,14 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
-          push: false
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64/v8
-          outputs: type=registry,oci-mediatypes=true,dest=build.tar
 
       # Only load the image locally on push events (not in PRs)
       - name: Load Docker image
         if: github.event_name == 'push'
-        run: docker load < build.tar
+        run: docker buildx imagetools inspect ${{ steps.meta.outputs.tags }} --raw | jq '.manifests[] | select(.platform.architecture == "amd64") | .digest' | xargs -I {} docker buildx imagetools create -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest {}

@@ -26,7 +26,7 @@ jobs:
       run: |
         docker buildx create --use
         IMAGE_TAG=ghcr.io/${{ github.repository_owner }}/my-image-name:$(date +%s)
-        docker buildx build --platform linux/amd64,linux/arm64/v8 --file Dockerfile --tag $IMAGE_TAG --push
+        docker buildx build --platform linux/amd64,linux/arm64/v8 --file Dockerfile --tag $IMAGE_TAG --push .
 
     - name: Log out from GitHub Container Registry
       run: docker logout ghcr.io

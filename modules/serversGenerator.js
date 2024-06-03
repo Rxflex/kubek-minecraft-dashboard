@@ -82,11 +82,14 @@ async function startJavaServerGeneration(serverName, core, coreVersion, startPar
 
     // Если сервер с таким названием уже существует - не продолжаем
     if (SERVERS_MANAGER.isServerExists(serverName)) {
+        console.log("Server with this name already exists!");
         cb(false);
         return false;
     }
 
+    console.log("Check if java executable path is valid...");
     if (javaExecutablePath !== false) {
+        console.log("Java executable path is valid!");
         // Создаём весь путь для сервера
         let serverDirectoryPath = "./servers/" + serverName;
         fs.mkdirSync(serverDirectoryPath, {recursive: true});

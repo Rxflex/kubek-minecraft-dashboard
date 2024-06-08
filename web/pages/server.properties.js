@@ -30,7 +30,7 @@ KubekServerPropertiesUI = class {
                         htmlCode += NUMBER_INPUT.replace("$0", valueStr);
                         break;
                     default:
-                        htmlCode += TEXT_INPUT.replace("$0", valueStr);
+                        htmlCode += TEXT_INPUT.replace("$0", typeof valueStr !== "object" ? valueStr : JSON.stringify(valueStr));
                         break;
                 }
                 htmlCode += "</td></tr>";
